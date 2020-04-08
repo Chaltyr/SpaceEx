@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import Layout from '../components/layout'
 
 const Home = () => (
+  
   <div className="container">
     <Head>
       <title>Create Next App</title>
@@ -8,6 +10,8 @@ const Home = () => (
     </Head>
 
     <main>
+      <Layout>
+        <p>This is the homepage</p>
       <h1 className="title">
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
@@ -45,6 +49,8 @@ const Home = () => (
           </p>
         </a>
       </div>
+      </Layout>
+
     </main>
 
     <footer>
