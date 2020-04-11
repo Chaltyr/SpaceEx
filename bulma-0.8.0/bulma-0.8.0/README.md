@@ -91,7 +91,7 @@ Browse the [online documentation here.](https://bulma.io/documentation/overview/
 | [Bulma-modal-fx](https://github.com/postare/bulma-modal-fx)                          | A set of modal window effects with CSS transitions and animations for Bulma            |
 | [Bulma.styl](https://github.com/log1x/bulma.styl)                                    | 1:1 Stylus translation of Bulma                                                        |
 | [elm-bulma](https://github.com/surprisetalk/elm-bulma)                               | Bulma + Elm                                                                            |
-| [elm-bulma-classes](https://github.com/ahstro/elm-bulma-classes)                     | Bulma classes prepared for usage with Elm                                              |
+| [elm-bulma-classNamees](https://github.com/ahstro/elm-bulma-classNamees)                     | Bulma classNamees prepared for usage with Elm                                              |
 | [Bulma Customizer](https://bulma-customizer.bstash.io/)                              | Bulma Customizer &#8211; Create your own **bespoke** Bulma build                       |
 | [Fulma](https://fulma.github.io/Fulma/)                                       | Wrapper around Bulma for [fable-react](https://github.com/fable-compiler/fable-react)  |
 | [Laravel Enso](https://github.com/laravel-enso/enso)                                 | SPA Admin Panel built with Bulma, VueJS and Laravel                                    |
@@ -101,9 +101,9 @@ Browse the [online documentation here.](https://bulma.io/documentation/overview/
 | [purescript-bulma](https://github.com/sectore/purescript-bulma)                      | PureScript bindings for Bulma                                                          |
 | [Vue Datatable](https://github.com/laravel-enso/vuedatatable)                        | Bulma themed datatable based on Vue, Laravel & JSON templates                          |
 | [bulma-fluent](https://mubaidr.github.io/bulma-fluent/)                              | Fluent Design Theme for Bulma inspired by Microsoft’s Fluent Design System             |
-| [csskrt-csskrt](https://github.com/4d11/csskrt-csskrt)                               | Automatically add Bulma classes to HTML files                                          |
+| [csskrt-csskrt](https://github.com/4d11/csskrt-csskrt)                               | Automatically add Bulma classNamees to HTML files                                          |
 | [bulma-pagination-react](https://github.com/hipstersmoothie/bulma-pagination-react)  | Bulma pagination as a react component                                                  |
-| [bulma-helpers](https://github.com/jmaczan/bulma-helpers)                            | Functional / Atomic CSS classes for Bulma                                              |
+| [bulma-helpers](https://github.com/jmaczan/bulma-helpers)                            | Functional / Atomic CSS classNamees for Bulma                                              |
 | [bulma-swatch-hook](https://github.com/hipstersmoothie/bulma-swatch-hook)            | Bulma swatches as a react hook and a component                                         |
 | [BulmaWP](https://github.com/tomhrtly/BulmaWP)                                       | Starter WordPress theme for Bulma                                                      |
 | [Ralma](https://github.com/aldi/ralma)                                               | Stateless Ractive.js Components for Bulma                                              |

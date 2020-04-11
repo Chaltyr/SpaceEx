@@ -1,9 +1,94 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import React from 'react'
+import Link from 'next/link';
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { HttpLink } from "apollo-link-http";
+import gql from "graphql-tag";
+import fetch from 'isomorphic-unfetch';
+import { ApolloProvider } from "@apollo/react-hooks";
+import { render } from 'react-dom';
+// import Rockets from './rockets';
+// import useQuery from '@apollo/react-hooks'
+import { Query } from '@apollo/react-components';
+
+// import Pages from "./pages";
+// import injectStyles from "./styles";
+
+
+
+const cache = new InMemoryCache();
+const link = new HttpLink({
+  fetch,
+  uri: "https://api.spacex.land/graphql/"
+  
+});
+
+const client = new ApolloClient({
+  cache,
+  link
+});
+
+const GET_ROCKETS = gql`
+      query {
+        rockets(limit: 10) {
+          company
+          country
+          id
+          name
+        }
+      }
+      
+    `;
+
+const Rockets = () => (
+  <Query
+    query={GET_ROCKETS}
+  >
+    {({ loading, error, data }) => {
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error :(</p>;
+
+      return data.rockets.map(({ country, name }) => (
+        <div key={country}>
+          <p>
+            {name}: {country}
+          </p>
+        </div>
+      ));
+    }}
+  </Query>
+);
+  // client
+  //   .query({
+  //     query: gql`
+  //       query {
+  //         rockets(limit: 10) {
+  //           company
+  //           country
+  //           id
+  //           name
+  //         }
+  //       }
+        
+  //     `
+  //   })
+  //   .then(result => console.log(result));
+
+  //   console.log("hello")
+
+const PostLink = props => (
+  <li>
+    <Link href="/p/[id]" as={`/p/${props.id}`}>
+      <a>{props.id}</a>
+    </Link>
+  </li>
+);
 
 const Home = () => (
-  <Layout>
+  <ApolloProvider client={ client }>
+    <Layout>
     <div className="container">
       <Head>
         <title>Create Next App</title>
@@ -15,6 +100,7 @@ const Home = () => (
             This is the homepage where we will display a list of rockets owned by spaceX
         </h1>
         <div className="container">
+          <Rockets/>
           <p className='description'>
             Will try to use cards and grid system to display each rocket with details
           </p>
@@ -30,32 +116,35 @@ const Home = () => (
             <li>
               Country
             </li>
+            <PostLink id="hello-nextjs" />
+            <PostLink id="learn-nextjs" />
+            <PostLink id="deploy-nextjs" />
           </ul>
         </div>
   
         {/* <p>This is the homepage</p>
-        <h1 className="title">
+        <h1 classNameName="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <p className="description">
+        <p classNameName="description">
           Get started by editing <code>pages/index.js</code>
         </p>
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
+        <div classNameName="grid">
+          <a href="https://nextjs.org/docs" classNameName="card">
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
+          <a href="https://nextjs.org/learn" classNameName="card">
             <h3>Learn &rarr;</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a
             href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
+            classNameName="card"
           >
             <h3>Examples &rarr;</h3>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
@@ -63,7 +152,7 @@ const Home = () => (
 
           <a
             href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
+            classNameName="card"
           >
             <h3>Deploy &rarr;</h3>
             <p>
@@ -228,7 +317,11 @@ const Home = () => (
 
     </div>
   </Layout>
+</ApolloProvider>
+  
 
 )
+// render(<Home />, document.getElementById('root'));
 
 export default Home
+

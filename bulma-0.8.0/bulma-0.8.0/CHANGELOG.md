@@ -215,7 +215,7 @@ Fix #1979 -> Correct loading spinner color when a button is:
 
 * #2145 Fix #372 -> New indeterminate progress bars
 * #2206 Fix #2046 -> New variables `$table-head-background-color`, `$table-body-background-color` and `$table-foot-background-color` for the `.table` element
-* #592 -> Give arbitrary elements access to the image/ratio classes
+* #592 -> Give arbitrary elements access to the image/ratio classNamees
 * #1682 Fix #1681 -> Adds disabled styles for `<fieldset disabled>`
 * #2201 Fix #1875 -> `.buttons` and `.tags` group sizing (`.are-small`, `.are-medium`, `.are-large`)
 
@@ -243,8 +243,8 @@ Fix #1979 -> Correct loading spinner color when a button is:
 * #1884 New `$navbar-burger-color` variable
 * #1679 Add breakpoint based column gaps
 * #1905 Fix `modal` for IE11 #1902
-* #1919 New `is-arrowless` class for navbar items
-* #1949 New `is-fullheight-with-navbar` class for heros
+* #1919 New `is-arrowless` className for navbar items
+* #1949 New `is-fullheight-with-navbar` className for heros
 * #1764 New `.is-sr-only` helper
 * #2109 Add and use `$navbar-breakpoint` variable
 * New variables `$control-height`, `$control-line-height`, `$pagination-min-width`, `$input-height`
@@ -309,10 +309,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
 
 #### Updated default values
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="3">
+      <th className="is-light" colspan="3">
         File
         <code>sass/utilities/initial-variables.sass</code>
       </th>
@@ -358,10 +358,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="3">
+      <th className="is-light" colspan="3">
         File
         <code>sass/base/generic.sass</code>
       </th>
@@ -396,10 +396,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="3">
+      <th className="is-light" colspan="3">
         File
         <code>sass/elements/content.sass</code>
       </th>
@@ -423,10 +423,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="3">
+      <th className="is-light" colspan="3">
         File
         <code>sass/components/message.sass</code>
       </th>
@@ -461,10 +461,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="3">
+      <th className="is-light" colspan="3">
         File
         <code>sass/components/navbar.sass</code>
       </th>
@@ -510,10 +510,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="3">
+      <th className="is-light" colspan="3">
         File
         <code>sass/layout/footer.sass</code>
       </th>
@@ -539,10 +539,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
 
 #### New variables
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="2">
+      <th className="is-light" colspan="2">
         File
         <code>sass/components/breadcrumb.sass</code>
       </th>
@@ -570,10 +570,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="2">
+      <th className="is-light" colspan="2">
         File
         <code>sass/components/message.sass</code>
       </th>
@@ -617,10 +617,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="2">
+      <th className="is-light" colspan="2">
         File
         <code>sass/components/navbar.sass</code>
       </th>
@@ -672,10 +672,10 @@ Fix #1979 -> Correct loading spinner color when a button is:
   </tbody>
 </table>
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
-      <th class="is-light" colspan="2">
+      <th className="is-light" colspan="2">
         File
         <code>sass/elements/title.sass</code>
       </th>
@@ -713,7 +713,7 @@ Fix #1979 -> Correct loading spinner color when a button is:
 
 #### Removed variables
 
-<table class="table is-bordered">
+<table className="table is-bordered">
   <tbody>
     <tr>
       <th>File</th>
@@ -765,7 +765,7 @@ Fix #1979 -> Correct loading spinner color when a button is:
 * 🎉 #1255 New `.is-expanded` modifier for `navbar-item`
 * 🎉 #1384 New `.is-centered` and `.is-right` modifiers for `tags`
 * 🎉 #1383 New `.is-empty` modifier for `file`
-* 🎉 #1380 Allow `.is-selected` class on `<td>` and `<th>` tags
+* 🎉 #1380 Allow `.is-selected` className on `<td>` and `<th>` tags
 
 ### Improvements
 
@@ -791,7 +791,7 @@ Fix #1979 -> Correct loading spinner color when a button is:
 
 ### New features
 
-* #1236 `.table` hover effect is opt-in, by using the `.is-hoverable` modifier class
+* #1236 `.table` hover effect is opt-in, by using the `.is-hoverable` modifier className
 * #1254 `.dropdown` now supports `.is-up` modifier
 
 ### Improvements
@@ -1044,7 +1044,7 @@ Variable name changes (mostly appending `-color`):
 
 * Fix #26 `.textarea` element will honors `[rows]` attribute
 * Fix #887 `body` scrollbar
-* Fix #715 `.help` class behaviour in horizontal form `is-grouped` field
+* Fix #715 `.help` className behaviour in horizontal form `is-grouped` field
 * Fix #842 Adding modifiers in `navbar`
 * Fix #841 `.container` as direct child of `.navbar` moves `.navbar-menu` below `.navbar-brand`
 * Fix #861 Box in hero as text and background white
@@ -1075,7 +1075,7 @@ Variable name changes (mostly appending `-color`):
 * Fix #819 Remove `height: auto` from media elements
 * Fix #790 Documentation typo
 * Fix #814 Make use of +fullhd mixin for columns @Saboteur777
-* Fix #781 Add min/max height/width to delete class size modifiers @ZackWard
+* Fix #781 Add min/max height/width to delete className size modifiers @ZackWard
 * Fix #391 Section docs update
 
 ## 0.4.2
@@ -1240,7 +1240,7 @@ Variable name changes (mostly appending `-color`):
 ## 0.0.25
 
 * Added: `utilities/controls.sass` and `elements/form.sass`
-* Added: new responsive classes
+* Added: new responsive classNamees
 * Added: white/black and light/dark colors
 * Changed: `.tabs` need `.icon` now
 * Changed: cdnjs link doesn't include version
@@ -1253,7 +1253,7 @@ Variable name changes (mostly appending `-color`):
 
 ### Removed
 
-* removed border between sections. Use `<hr class="is-marginless">` now
+* removed border between sections. Use `<hr className="is-marginless">` now
 
 ### Updated
 
@@ -1271,8 +1271,8 @@ Variable name changes (mostly appending `-color`):
 * `bulma` folder renamed to `sass` to avoid the redundant `bulma/bulma` path
 * `variables.sass` moved to `/utilities`
 * almost everything is singular now
-* **elements** only have one class
-* **components** have at least one sub-class
+* **elements** only have one className
+* **components** have at least one sub-className
 * `.content` moved to elements
 * `.table` moved to elements
 * `.message` moved to components
@@ -1330,8 +1330,8 @@ Variable name changes (mostly appending `-color`):
 ### Added
 
 * **small tag**: `.tag.is-small`
-* 12th column classes
-* `*-full` column classes
+* 12th column classNamees
+* `*-full` column classNamees
 * `$family-code`
 
 ### Fixed
