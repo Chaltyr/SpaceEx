@@ -15,7 +15,6 @@ query RocketDetails($rocketId: ID!) {
       name
     }
   }
-  
   `;
 
   const Rocket = ({ rocketId }) => {

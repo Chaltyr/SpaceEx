@@ -9,14 +9,15 @@ import gql from "graphql-tag";
 import fetch from 'isomorphic-unfetch';
 import { ApolloProvider } from "@apollo/react-hooks";
 import { render } from 'react-dom';
-// import Rockets from './rockets';
-// import useQuery from '@apollo/react-hooks'
 import { Query } from '@apollo/react-components';
 
-// import Pages from "./pages";
-// import injectStyles from "./styles";
-
-
+const PostLink = props => (
+  <li>
+    <Link href="/rocket/[id]" as={`/rocket/${props.id}`}>
+      <a>{props.id}</a>
+    </Link>
+  </li>
+);
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -50,11 +51,43 @@ const Rockets = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
 
-      return data.rockets.map(({ country, name }) => (
-        <div key={country}>
-          <p>
-            {name}: {country}
-          </p>
+      return data.rockets.map(({ country, name, company, id }) => (
+        // <div key={country}>
+        //   <p>
+        //     {name}: {country}
+        //   </p>
+        // </div>
+        <div class="card">
+          <div class="card-image">
+              <figure class="image is-4by3">
+              <Link href={`/rocket/${id}`} >
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"/>
+              </Link>
+            </figure>            
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"/>
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">John Smith</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+
+            <div class="content">
+              {name}
+              {country}
+              {id}
+              {company}
+              <a href="#">#css</a> <a href="#">#responsive</a>
+              <br/>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+          </div>
         </div>
       ));
     }}
@@ -78,13 +111,7 @@ const Rockets = () => (
 
   //   console.log("hello")
 
-const PostLink = props => (
-  <li>
-    <Link href="/p/[id]" as={`/p/${props.id}`}>
-      <a>{props.id}</a>
-    </Link>
-  </li>
-);
+
 
 const Home = () => (
   <ApolloProvider client={ client }>
