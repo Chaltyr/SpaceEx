@@ -50,18 +50,19 @@ const Rockets = () => (
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
+      console.log(data.rockets[0].id)
 
+        // if(data.rockets[0].id){
+        //   return '/falcon1'
+        // }
+        
+      
       return data.rockets.map(({ country, name, company, id }) => (
-        // <div key={country}>
-        //   <p>
-        //     {name}: {country}
-        //   </p>
-        // </div>
         <div class="card">
           <div class="card-image">
               <figure class="image is-4by3">
               <Link href={`/rocket/${id}`} >
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"/>
+                <img src={`/${id}.jpg`} alt="Placeholder image"/>
               </Link>
             </figure>            
           </div>
@@ -93,25 +94,6 @@ const Rockets = () => (
     }}
   </Query>
 );
-  // client
-  //   .query({
-  //     query: gql`
-  //       query {
-  //         rockets(limit: 10) {
-  //           company
-  //           country
-  //           id
-  //           name
-  //         }
-  //       }
-        
-  //     `
-  //   })
-  //   .then(result => console.log(result));
-
-  //   console.log("hello")
-
-
 
 const Home = () => (
   <ApolloProvider client={ client }>

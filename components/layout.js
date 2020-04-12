@@ -2,8 +2,8 @@ import Header from './Header';
 import Navbar from './Navbar';
 
 const layoutStyle = {
-  margin: 10,
-  padding: 10,
+  // margin: 10,
+  // padding: 10,
   border: '1px solid #DDD'
 };
 

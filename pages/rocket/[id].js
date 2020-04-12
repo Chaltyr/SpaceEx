@@ -24,9 +24,9 @@ const Rocket = (props) => {
     
     // const router = useRouter()
     // const { id } = router.query
-    console.log(props.data)
+    // console.log(props.data)
     // return <p>Rocket: {props.id}</p>
-    console.log(props.name)
+    // console.log(props.name)
     return (
         <Layout>
             <div>
@@ -44,7 +44,7 @@ Rocket.getInitialProps = async ctx => {
     const GET_ROCKET_DETAILS = gql`
     query 
     {
-        rocket(id: "falcon1") {
+        rocket(id: "${ctx.query.id}") {
         name
         company
         id
@@ -53,7 +53,9 @@ Rocket.getInitialProps = async ctx => {
         }
     }
     `;
-    
+
+    // console.log(ctx)
+
     // client
     // .query({
     //     query: GET_ROCKET_DETAILS
