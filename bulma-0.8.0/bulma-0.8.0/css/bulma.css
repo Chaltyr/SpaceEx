@@ -369,7 +369,7 @@ a strong {
 }
 
 a:hover {
-  color: #363636;
+  color: #1b1b1b;
 }
 
 code {
@@ -3366,7 +3366,14 @@ fieldset[disabled] .button {
   width: 128px;
 }
 
-.notification {
+.image.is-480x723
+ {
+  height: 361px;
+  width: 100%;
+  object-fit: cover;
+ }
+ 
+ .notification {
   background-color: whitesmoke;
   border-radius: 4px;
   padding: 1.25rem 2.5rem 1.25rem 1.5rem;
@@ -5658,12 +5665,37 @@ fieldset[disabled] .select select:hover {
   content: "\0227B";
 }
 
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+    } 
+  }
+
 .card {
-  background-color: white;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-  color: #4a4a4a;
-  max-width: 100%;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards;
+  background: rgba(255,255,255,.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  border-radius: 10px;
+  cursor: pointer;
+  /* background-color: black;
+  box-shadow: 0 1em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02); */
+  color: black;
+  max-width: 250px;
+  max-height: 700px;
   position: relative;
+  padding: 0.75rem;
+  margin: 1rem;
+  transition: 0.5s;
+}
+
+.card:hover {
+  background-color: black;
+  color: white;
 }
 
 .card-header {
@@ -6017,6 +6049,7 @@ a.list-item {
   flex-grow: 1;
   flex-shrink: 1;
   text-align: left;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -6407,8 +6440,8 @@ a.list-item {
 .navbar.is-white .navbar-brand .navbar-link:focus,
 .navbar.is-white .navbar-brand .navbar-link:hover,
 .navbar.is-white .navbar-brand .navbar-link.is-active {
-  background-color: #f2f2f2;
-  color: #0a0a0a;
+  background-color: #fffefe;
+  color: #302f2f;
 }
 
 .navbar.is-white .navbar-brand .navbar-link::after {
@@ -6456,7 +6489,7 @@ a.list-item {
 }
 
 .navbar.is-black {
-  background-color: #0a0a0a;
+  background-color: #000000;
   color: white;
 }
 
@@ -7021,7 +7054,7 @@ a.list-item {
 }
 
 .navbar.has-shadow {
-  box-shadow: 0 2px 0 0 whitesmoke;
+  box-shadow: 0 2px 0 0 rgb(82, 81, 81);
 }
 
 .navbar.is-fixed-bottom, .navbar.is-fixed-top {
@@ -7144,6 +7177,9 @@ body.has-navbar-fixed-bottom {
 
 a.navbar-item,
 .navbar-link {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards;
   cursor: pointer;
 }
 
@@ -7183,7 +7219,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 .navbar-item.is-tab:focus, .navbar-item.is-tab:hover {
   background-color: transparent;
-  border-bottom-color: #3273dc;
+  border-bottom-color: #f4f6fa;
 }
 
 .navbar-item.is-tab.is-active {
@@ -10810,6 +10846,7 @@ label.panel-block:hover {
   flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+  font-size: 5rem;
 }
 
 .section {
@@ -10826,7 +10863,7 @@ label.panel-block:hover {
 }
 
 .footer {
-  background-color: #fafafa;
+  background-color: transparent;
   padding: 3rem 1.5rem 6rem;
 }
 /*# sourceMappingURL=bulma.css.map */

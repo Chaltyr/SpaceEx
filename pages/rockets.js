@@ -1,9 +1,7 @@
-import React, { Fragment } from "react";
-import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import Link from 'next/link'
-
-// import { LaunchTile } from "../components";
+import { Query } from '@apollo/react-components';
+import Link from 'next/link';
+import "../public/static/loader.css"
 
 const GET_ROCKETS = gql`
       query {
@@ -11,71 +9,55 @@ const GET_ROCKETS = gql`
           company
           country
           id
-          name
+					name
+					first_flight
         }
       }
       
     `;
 
-// const backgrounds = [galaxy, space, moon];
-// export function getBackgroundImage(id) {
-//   return `url(${backgrounds[Number(id) % backgrounds.length]})`;
-// }
-const Rockets = () => {
-    const { data,
-         loading,
-            error } = useQuery(GET_ROCKETS);
+const Rockets = () => (
+  <Query
+    query={GET_ROCKETS}
+  >
+    {({ loading, error, data }) => {
+      if (loading) return (
+				<div className="loadingio-spinner-bars-g99922nc3eg">
+					<div className="ldio-w2ga5b317p">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>);
+      if (error) return <p>Error :(</p>;
     
-    if (loading) return <p>loading</p>;
-    if (error) return <p>ERROR</p>;
-    if (!data) return <p>Not found</p>;
-    
-    return (
-        <Fragment>
-        {/* <Header /> */}
-        {data.rockets &&
-            data.rockets.rockets &&
-            data.rockets.rockets.map(rockets => (
-                <Link to={`/rocket/${id}`}>
-                    <h2>{company ? company: ""}</h2>
-                    <h5>{rocket && rocket.name}</h5>
-                    <h5>{country}</h5>
-                </Link>
-            // <LaunchTile key={rockets.id} rockets={rockets} />
-            ))}
-        {/* {data.rockets && 
-            data.rockets.hasMore && (
-                <Button
-                onClick={() =>
+      return data.rockets.map(({ country, name, id }) => (
+      <Link  href={`/rocket/${id}`} >
+        <div className="card" >
+          <div className="card-image">
+            <figure className="image is-480x723" >
+                <img src={`/${id}.jpg`} alt="Placeholder image" class="image is-480x723"/>
+            </figure>            
+          </div>
+          <div className="card-content">
+            <div className="Content">
+              <div>
+                Name: {name}
+              </div>
+							<br/>
+              <div>
+                Country: {country}
+              </div>
+            </div>
+          </div>
+        </div>
+        </Link>
 
-                    fetchMore({
-                    variables: {
-                        after: data.rockets.cursor,
-                    },
+      ));
+    }}
+      
+  </Query>
+);
 
-                    updateQuery: (prev, { fetchMoreResult, ...rest }) => {
-                        if (!fetchMoreResult) return prev;
-                        return {
-                        ...fetchMoreResult,
-                        rockets: {
-                            ...fetchMoreResult.rockets,
-                            rockets: [
-                            ...prev.rockets.rockets,
-                            ...fetchMoreResult.rockets.rockets,
-                            ],
-                        },
-                        };
-                    },
-                    })
-                }
-                >
-                Load More
-                </Button>
-            )
-            } */}
-        </Fragment>
-    );
-    };
-    
-    export default Rockets;
-
+export default Rockets;

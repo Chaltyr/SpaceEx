@@ -1,15 +1,16 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import React from 'react'
 import Link from 'next/link';
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
-import gql from "graphql-tag";
 import fetch from 'isomorphic-unfetch';
 import { ApolloProvider } from "@apollo/react-hooks";
-import { render } from 'react-dom';
-import { Query } from '@apollo/react-components';
+import Rockets from "./rockets";
+import "../public/static/loader.css"
+
+
 
 const PostLink = props => (
   <li>
@@ -31,85 +32,35 @@ const client = new ApolloClient({
   link
 });
 
-const GET_ROCKETS = gql`
-      query {
-        rockets(limit: 10) {
-          company
-          country
-          id
-          name
-        }
-      }
-      
-    `;
-
-const Rockets = () => (
-  <Query
-    query={GET_ROCKETS}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
-      console.log(data.rockets[0].id)
-
-        // if(data.rockets[0].id){
-        //   return '/falcon1'
-        // }
-        
-      
-      return data.rockets.map(({ country, name, company, id }) => (
-        <div class="card">
-          <div class="card-image">
-              <figure class="image is-4by3">
-              <Link href={`/rocket/${id}`} >
-                <img src={`/${id}.jpg`} alt="Placeholder image"/>
-              </Link>
-            </figure>            
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"/>
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              {name}
-              {country}
-              {id}
-              {company}
-              <a href="#">#css</a> <a href="#">#responsive</a>
-              <br/>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-          </div>
-        </div>
-      ));
-    }}
-  </Query>
-);
-
 const Home = () => (
   <ApolloProvider client={ client }>
     <Layout>
     <div className="container">
       <Head>
         <title>Create Next App</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
+        <script type="text/javascript" src="/static/hello.js"></script>
       </Head>
-
       <main>
         <h1 className='title'>
-            This is the homepage where we will display a list of rockets owned by spaceX
+          I would like to die on Mars. Just not on impact. - Elon Musk
         </h1>
+        <br/>
+        <br/>
+        <br/>
+        <h5 className="subtitle">
+          Below are the rockets SpaceX has launched so far. Click on them to find out more!
+        </h5>
+        <br/>
+        <br/>
+        <br/>
+
         <div className="container">
-          <Rockets/>
+          <div className="cardContainer is-multiline">
+              <Rockets/>
+          </div>
           <p className='description'>
             Will try to use cards and grid system to display each rocket with details
           </p>
@@ -130,60 +81,36 @@ const Home = () => (
             <PostLink id="deploy-nextjs" />
           </ul>
         </div>
-  
-        {/* <p>This is the homepage</p>
-        <h1 classNameName="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p classNameName="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div classNameName="grid">
-          <a href="https://nextjs.org/docs" classNameName="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" classNameName="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            classNameName="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            classNameName="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with ZEIT Now.
-            </p>
-          </a>
-        </div> */}
-
       </main>
-
-      <footer>
+      <footer className="footer">
         <a
-          href="https://zeit.co?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://api.spacex.land/graphql/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
+          Powered by <img src="/spacex_logo_white.png" alt="" /> GraphQl
         </a>
       </footer>
 
-      <style jsx>{`
+      <style jsx>{`       
+        .cardContainer {
+          display: flex;
+          justify-content: center; 
+          flex-wrap: wrap;        
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+        
+
         .container {
+          font-family: 'Space Mono', monospace;
+          font-weight: bold;
           min-height: 100vh;
           padding: 0 0.5rem;
           display: flex;
@@ -240,6 +167,7 @@ const Home = () => (
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
+          color: white;
         }
 
         .title,
@@ -327,10 +255,7 @@ const Home = () => (
     </div>
   </Layout>
 </ApolloProvider>
-  
-
 )
-// render(<Home />, document.getElementById('root'));
 
 export default Home
 
