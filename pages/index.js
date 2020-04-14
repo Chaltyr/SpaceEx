@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import React from 'react'
-import Link from 'next/link';
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
@@ -9,16 +8,6 @@ import fetch from 'isomorphic-unfetch';
 import { ApolloProvider } from "@apollo/react-hooks";
 import Rockets from "./rockets";
 import "../public/static/loader.css"
-
-
-
-const PostLink = props => (
-  <li>
-    <Link href="/rocket/[id]" as={`/rocket/${props.id}`}>
-      <a>{props.id}</a>
-    </Link>
-  </li>
-);
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -37,7 +26,7 @@ const Home = () => (
     <Layout>
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>SpaceX Rockets</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
@@ -62,24 +51,8 @@ const Home = () => (
               <Rockets/>
           </div>
           <p className='description'>
-            Will try to use cards and grid system to display each rocket with details
+            This app uses SpaceX Graphql in order to display the information as shown. You may access this Graphql by clicking the footer below.
           </p>
-          <ul>
-            <li>
-              Rocket Name 
-            </li>
-            <li>
-              <a href='/'>
-                <p>Preview image</p>
-              </a>
-            </li>
-            <li>
-              Country
-            </li>
-            <PostLink id="hello-nextjs" />
-            <PostLink id="learn-nextjs" />
-            <PostLink id="deploy-nextjs" />
-          </ul>
         </div>
       </main>
       <footer className="footer">
@@ -93,6 +66,22 @@ const Home = () => (
       </footer>
 
       <style jsx>{`       
+        @keyframes fadeInAnimation { 
+          0% { 
+              opacity: 0; 
+          } 
+          100% { 
+              opacity: 1; 
+            } 
+          }
+
+        @media (max-width: 600px) {
+          .grid {
+            width: 100%;
+            flex-direction: column;
+          }
+        }
+
         .cardContainer {
           display: flex;
           justify-content: center; 
@@ -107,7 +96,6 @@ const Home = () => (
           box-sizing: border-box;
         }
         
-
         .container {
           font-family: 'Space Mono', monospace;
           font-weight: bold;
@@ -168,6 +156,16 @@ const Home = () => (
           line-height: 1.15;
           font-size: 4rem;
           color: white;
+          animation: fadeInAnimation ease 3s;
+          animation-iteration-count: 1; 
+          animation-fill-mode: forwards;
+        }
+
+        .subtitle {
+          color: white;
+          animation: fadeInAnimation ease 3s;
+          animation-iteration-count: 1; 
+          animation-fill-mode: forwards;
         }
 
         .title,
@@ -178,15 +176,10 @@ const Home = () => (
         .description {
           line-height: 1.5;
           font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+          color: white;
+          animation: fadeInAnimation ease 3s;
+          animation-iteration-count: 1; 
+          animation-fill-mode: forwards;
         }
 
         .grid {
@@ -229,12 +222,7 @@ const Home = () => (
           line-height: 1.5;
         }
 
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
+       
       `}</style>
 
       <style jsx global>{`
@@ -250,8 +238,6 @@ const Home = () => (
           box-sizing: border-box;
         }
       `}</style>
-
-
     </div>
   </Layout>
 </ApolloProvider>

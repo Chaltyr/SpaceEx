@@ -30,10 +30,8 @@ const Rocket = (props) => {
       
       <main>
         <section className="hero">
-          <div className="hero-body" >
-                  <h1 class="title">
-                      {props.data.rocket.name}
-                  </h1>                         
+          <div className="hero-body" >      
+            {props.data.rocket.name}                    
           </div>
         </section>
         
@@ -111,9 +109,19 @@ const Rocket = (props) => {
         </a>
       </footer>
       <style jsx>{`
+        @keyframes fadeInAnimation { 
+          0% { 
+              opacity: 0; 
+          } 
+          100% { 
+              opacity: 1; 
+            } 
+          }
+
         .rocketFooter {
           background-color: black;
         }
+
         .technicalContent {
           padding: 1.5rem;
           margin: 2.5rem;
@@ -126,7 +134,6 @@ const Rocket = (props) => {
           font-size: 1.25rem;
           box-shadow: 0 5px 15px rgba(0,0,0,.5);
           background: rgba(255,255,255,.2);
-          box-shadow: 0 5px 15px rgba(0,0,0,.5);
           border-style: groove;
           border-radius: 20px;
           margin: 0.75rem;
@@ -144,9 +151,7 @@ const Rocket = (props) => {
           font-weight: 900;
           text-decoration: underline;
         }
-        .statsDiv {
-
-        }
+        
         .infoDiv {
           padding-top: 0.5rem;
           padding-bottom: 0.5rem;
@@ -164,15 +169,6 @@ const Rocket = (props) => {
           font-weight: bold;
           text-decoration: underline;
         }
-
-        @keyframes fadeInAnimation { 
-          0% { 
-              opacity: 0; 
-          } 
-          100% { 
-              opacity: 1; 
-            } 
-          }
 
         .columns {
           color: black;
@@ -198,6 +194,9 @@ const Rocket = (props) => {
           color: black;
           font-family: 'Space Mono', monospace;
           text-decoration: underline;
+          animation: fadeInAnimation ease 3s;
+          animation-iteration-count: 1; 
+          animation-fill-mode: forwards;
         }
 
         .title {
@@ -209,8 +208,7 @@ const Rocket = (props) => {
         .descriptionSection {
           display: flex;
         }
-
-        
+       
         .cardContainer {
           display: flex;
           justify-content: center; 
@@ -225,7 +223,6 @@ const Rocket = (props) => {
           box-sizing: border-box;
         }
         
-
         .container {
           background-color:blue;
           min-height: 100vh;
@@ -284,8 +281,7 @@ const Rocket = (props) => {
         .title a:active {
           text-decoration: underline;
         }
-
-        
+       
         .title,
         .description {
           text-align: center;
@@ -302,7 +298,8 @@ const Rocket = (props) => {
             flex-direction: column;
           }
         }
-`}</style>
+      `}
+      </style>
 
       <style jsx global>{`
         html,
@@ -316,59 +313,55 @@ const Rocket = (props) => {
         * {
           box-sizing: border-box;
         }
-      `}</style>
-        </Layout> 
-    )
+      `}
+      </style>
+    </Layout> 
+  )
 }
 
-
 Rocket.getInitialProps = async ctx => {
-    const GET_ROCKET_DETAILS = gql`
-    query{
-      rocket(id: "${ctx.query.id}") {
-        company
-        country
-        description
-        payload_weights {
-          kg
-          id
-          lb
-          name
-        }
-        active
-        first_flight
+  const GET_ROCKET_DETAILS = gql`
+  query{
+    rocket(id: "${ctx.query.id}") {
+      company
+      country
+      description
+      payload_weights {
+        kg
         id
+        lb
         name
-        first_stage {
-          burn_time_sec
-          engines
-          fuel_amount_tons
-          reusable
-        }
-        second_stage {
-          burn_time_sec
-          engines
-          fuel_amount_tons
-        }
-        mass {
-          kg
-        }
-        height {
-          meters
-        }
-        landing_legs {
-          material
-          number
-        }
+      }
+      active
+      first_flight
+      id
+      name
+      first_stage {
+        burn_time_sec
+        engines
+        fuel_amount_tons
+        reusable
+      }
+      second_stage {
+        burn_time_sec
+        engines
+        fuel_amount_tons
+      }
+      mass {
+        kg
+      }
+      height {
+        meters
+      }
+      landing_legs {
+        material
+        number
       }
     }
-    `;
-
-    const res = await client.query({ query: GET_ROCKET_DETAILS })
-
-    
-    return { data: res.data  }
-
+  }
+  `;
+  const res = await client.query({ query: GET_ROCKET_DETAILS }) 
+  return { data: res.data  }
 }
 
 export default Rocket

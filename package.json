@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.4",
-    "@emotion/core": "^10.0.28",
     "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.4.7",
     "apollo-datasource-rest": "^0.8.1",

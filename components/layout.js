@@ -1,13 +1,5 @@
 import Navbar from './Navbar';
 
-const layoutStyle = {
-  // margin: 10,
-  // padding: 10,
-  border: '1px solid #DDD',
-  backgroundColor: "white"
-  // backgroundImage: "/public/background image.jpg"
-};
-
 const Layout = props => (
     <div className="layout" >
           <Navbar />
