@@ -92,9 +92,12 @@ const Rocket = (props) => {
             <div className="technicalContent">
               Number of legs: {props.data.rocket.landing_legs.number}
             </div>
-            <div className="technicalContent">
-              Leg material: {props.data.rocket.landing_legs.material}
-            </div>
+						{
+							props.data.rocket.landing_legs.material &&
+							<div className="technicalContent">
+								Leg material: {props.data.rocket.landing_legs.material}
+							</div>
+						}            
           </div>
   
         </div>
