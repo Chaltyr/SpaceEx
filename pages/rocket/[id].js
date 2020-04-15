@@ -127,6 +127,10 @@ const Rocket = (props) => {
           margin: 2.5rem;
         }
 
+        .technicalContent:hover {
+          animation: pulse2 3s infinite;
+        }
+
         .technical {
           color: black;
           font-family: 'Space Mono', monospace;
@@ -196,6 +200,15 @@ const Rocket = (props) => {
           }
           50%{
             color: #FF4500; 
+          }
+        }
+
+        @keyframes pulse2 {
+          0%, 100% {
+            color: black;
+          }
+          50%{
+            color: white; 
           }
         }
 
