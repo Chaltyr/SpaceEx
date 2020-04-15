@@ -190,13 +190,26 @@ const Rocket = (props) => {
           padding: 2rem;
         }
 
+        @keyframes pulse {
+          0%, 100% {
+            color: white;
+          }
+          50%{
+            color: #FF4500; 
+          }
+        }
+
         .hero-body {
-          color: black;
+          color: white;
           font-family: 'Space Mono', monospace;
           text-decoration: underline;
           animation: fadeInAnimation ease 3s;
           animation-iteration-count: 1; 
           animation-fill-mode: forwards;
+        }
+
+        .hero-body:hover {
+          animation: pulse 3s infinite;
         }
 
         .title {

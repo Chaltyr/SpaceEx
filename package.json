@@ -2,9 +2,7 @@
   "name": "space-x",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "v13.5.0"
-  },
+  "engines": { "node": "12.x" },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
