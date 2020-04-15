@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import React from 'react'
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
-import fetch from 'isomorphic-unfetch';
-import { ApolloProvider } from "@apollo/react-hooks";
-import Rockets from "./rockets";
+import { ApolloClient } from "apollo-client"
+import { InMemoryCache } from "apollo-cache-inmemory"
+import { HttpLink } from "apollo-link-http"
+import fetch from 'isomorphic-unfetch'
+import { ApolloProvider } from "@apollo/react-hooks"
+import Rockets from "../components/Rockets"
 import "../public/static/loader.css"
 
 const cache = new InMemoryCache();
