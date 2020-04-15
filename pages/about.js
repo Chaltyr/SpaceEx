@@ -1,4 +1,4 @@
-import Layout from '../components/layout.js'
+import Layout from '../components/Layout2.js'
 
 export default function About() {
   return (
