@@ -10,9 +10,6 @@ const linkStyle = {
 export default function Nav() {
 	return (    
 		<nav className="navbar" id="navbar  " role="navigation" aria-label="main navigation" >
-			<Head>
-				<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
-			</Head>
 			<div className="navbar-brand">
 				<a className="navbar-item" href="/">
 					<img src="/spacex_logo_white.png" alt=""  />

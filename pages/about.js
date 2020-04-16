@@ -6,11 +6,6 @@ import React from 'react'
 export default function About() {
   return (
     <Layout>
-      <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
-        <script type="text/javascript" src="/static/hello.js"></script>
-      </Head>  
       <div className="main">
         <h1 className="title">
           <p>SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other planets.</p>
@@ -32,8 +27,7 @@ export default function About() {
               <p>Thank you for visiting the site and I hope you enjoy using it's functions.</p>
             </div>
           </div>
-        </div>
-        
+        </div>      
       </div>  
     
     <footer className="rocketFooter">

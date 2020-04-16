@@ -22,12 +22,6 @@ const client = new ApolloClient({
 const Rocket = (props) => {
   return (    
     <Layout>
-      <Head>
-				<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
-        <script type="text/javascript" src="/static/hello.js"></script>
-      </Head>
-      
       <div className="main">
         <section className="hero">
           <div className="hero-body" >      
@@ -40,7 +34,6 @@ const Rocket = (props) => {
             <div className="column">
               <p>{props.data.rocket.description}</p>                
               <div className="infoDiv">
-                {/* <p className="bold">Information</p> */}
                 <p>First flight: {props.data.rocket.first_flight}</p>
                 <p>Country: {props.data.rocket.country}</p>
               </div>
