@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Layout from '../components/Layout.js'
+import React from 'react'
+
 
 export default function About() {
   return (
@@ -8,7 +10,6 @@ export default function About() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
         <script type="text/javascript" src="/static/hello.js"></script>
-        {/* <script type="text/javascript" src="/static/movingImg.js"></script> */}
       </Head>  
       <div className="main">
         <h1 className="title">
@@ -20,7 +21,7 @@ export default function About() {
               <div id="box" ></div>
             </div>      
             <div className="column">
-              <p>This is a web site made using ReactJS framework. The styling of the website is a mixture of Bulma CSS framework as well as custom CSS styling.
+              <p>This is a web site made using NexttJS framework. The styling of the website is a mixture of Bulma CSS framework as well as custom CSS styling.
               Apollo GraphQl is also used to retrieve data from the SpaceX database.</p> 
               <br/>
               <br/>
