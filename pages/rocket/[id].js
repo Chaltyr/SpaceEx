@@ -23,12 +23,12 @@ const Rocket = (props) => {
   return (    
     <Layout>
       <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
         <script type="text/javascript" src="/static/hello.js"></script>
       </Head>
       
-      <main>
+      <div className="main">
         <section className="hero">
           <div className="hero-body" >      
             {props.data.rocket.name}                    
@@ -101,7 +101,7 @@ const Rocket = (props) => {
           </div>
   
         </div>
-      </main>
+      </div>
       <footer className="rocketFooter">
         <a
           href="https://api.spacex.land/graphql/"
@@ -111,7 +111,13 @@ const Rocket = (props) => {
           Powered by <img src="/spacex_logo_white.png" alt="" /> GraphQl
         </a>
       </footer>
-      <style jsx>{`
+			<style jsx>{`
+				@media (min-width: 500px) {
+					columns {
+						height: 350px;
+					}
+				}
+
         @keyframes fadeInAnimation { 
           0% { 
               opacity: 0; 
@@ -162,14 +168,15 @@ const Rocket = (props) => {
         .infoDiv {
           padding-top: 0.5rem;
           padding-bottom: 0.5rem;
-        }
+				}
+				
         .column2 {
           // display:flex;
           text-align: center;
         }
         .detailImg {
           width: 100%;
-          height: 90vh;
+          height: 100vh;
         }
         .bold {
           font-size: 1.5rem;
@@ -184,8 +191,8 @@ const Rocket = (props) => {
           animation: fadeInAnimation ease 3s;
           animation-iteration-count: 1; 
           animation-fill-mode: forwards;
-          // background: rgba(255,255,255,.2);
-          box-shadow: 0 5px 15px rgba(0,0,0,.5);
+					box-shadow: 0 5px 15px rgba(0,0,0,.5);
+				
         }
         
         .column {
@@ -194,7 +201,7 @@ const Rocket = (props) => {
           border-style: groove;
           border-radius: 20px;
           margin: 1.5rem;
-          padding: 2rem;
+					padding: 2rem;
         }
 
         @keyframes pulse {
@@ -262,10 +269,11 @@ const Rocket = (props) => {
           align-items: center;
         }
 
-        main {
-          background-size: cover;
-          background-position: center center;
-          background-image: url("../background image3.jpg");
+        .main {
+					background-image: url("../background image3.jpg");
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: cover;
           padding: 5rem 0;
           flex: 1;
           display: flex;
@@ -322,11 +330,10 @@ const Rocket = (props) => {
         }
 
         @media (max-width: 600px) {
-          .grid {
+          .columns {
             width: 100%;
             flex-direction: column;
-          }
-        }
+					}
       `}
       </style>
 
@@ -344,6 +351,19 @@ const Rocket = (props) => {
         }
       `}
       </style>
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </Layout> 
   )
 }

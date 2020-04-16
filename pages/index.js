@@ -37,19 +37,18 @@ const Home = () => (
           I would like to die on Mars. Just not on impact. - Elon Musk
         </h1>
         <br/>
-        <br/>
-        <br/>
         <h5 className="subtitle">
           Below are the rockets SpaceX has launched so far. Click on them to find out more!
         </h5>
         <br/>
         <br/>
-        <br/>
+
 
         <div className="container">
           <div className="cardContainer is-multiline">
               <Rockets/>
           </div>
+          <br/>
           <p className='description'>
             This app uses SpaceX Graphql in order to display the information as shown. You may access this Graphql by clicking the footer below.
           </p>
@@ -65,7 +64,8 @@ const Home = () => (
         </a>
       </footer>
 
-      <style jsx>{`       
+      <style jsx>{`
+               
         @keyframes fadeInAnimation { 
           0% { 
               opacity: 0; 
@@ -133,6 +133,8 @@ const Home = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          padding-top: 50px;
+          color: white;
         }
 
         a {
@@ -154,7 +156,7 @@ const Home = () => (
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 3rem;
           color: white;
           animation: fadeInAnimation ease 3s;
           animation-iteration-count: 1; 

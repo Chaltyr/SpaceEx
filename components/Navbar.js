@@ -49,7 +49,7 @@ export default function Nav() {
 						</a>
 			
 						<div className="navbar-dropdown">
-							<Link href="/about" disable="true">
+							<Link href="/about" >
 								<a className="navbar-item">
 									About
 								</a>
